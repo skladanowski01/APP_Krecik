@@ -77,6 +77,24 @@ window.addEventListener('load', () => {
             '-=0.2'
         );
 
+        // ==========================================
+    // SEKCJA LOKALIZACJI
+    // ==========================================
+    gsap.fromTo('.location-container', 
+        { opacity: 0, y: 40 },
+        { 
+            opacity: 1, 
+            y: 0, 
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '.location-section',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            }
+        }
+    );
+
     
     lenis.resize();
     ScrollTrigger.refresh();
