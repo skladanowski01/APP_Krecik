@@ -1,4 +1,4 @@
-/* Reset i Zmienne Globalne - Monochromatyczne */
+/* Reset i Zmienne Globalne - Centralne Sterowanie Paletą */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -6,14 +6,45 @@
 }
 
 :root {
-    --primary-color: #ffffff;
-    --primary-hover: #e2e8f0;
+    /* Podstawowe Kolory i Tła */
+    --bg-dark: #0a0e14;        /* Bardzo ciemny, chłodny granat zamiast czystej czerni */
+    --bg-dark-alt: #0f172a;    /* Ciemny odcień niebieskiego dla sekcji lokalizacji */
+    --bg-footer: #080c10;
+    --bg-card: rgba(15, 23, 42, 0.75);
+    --bg-glass: rgba(15, 23, 42, 0.85);
+
+    /* Teksty */
     --text-light: #ffffff;
-    --text-subtle: #a1a1aa;
-    --accent-blue: #ffffff;
-    --bg-dark: #000000;
-    --overlay-color: rgba(0, 0, 0, 0.75);
-    --focus-ring: 2px solid #ffffff;
+    --text-subtle: #94a3b8;    /* Chłodna szarość z nutą błękitu */
+    --text-heading-alt: #e2e8f0;
+    --text-dark: #0f172a;
+
+    /* Akcent Wodny / Przyciski */
+    --primary-color: #38bdf8;  /* Jasny, wodny błękit (Jasny turkus/sky) */
+    --primary-hover: #0284c7;  /* Głębszy, nasycony błękit */
+    --btn-bg: #38bdf8;
+    --btn-text: #080c10;
+
+    /* Nakładki i Elementy Szklane */
+    --overlay-color: rgba(10, 14, 20, 0.8);
+    --header-bg: rgba(10, 14, 20, 0.9);
+    --tag-bg: rgba(56, 189, 248, 0.1);
+    --tag-bg-hover: rgba(56, 189, 248, 0.25);
+    --scroll-indicator-bg: rgba(56, 189, 248, 0.15);
+    --scroll-indicator-hover: rgba(56, 189, 248, 0.3);
+
+    /* Obramowania */
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-medium: rgba(56, 189, 248, 0.2);
+    --border-strong: rgba(56, 189, 248, 0.4);
+    --border-hover: #38bdf8;
+    --focus-ring: 2px solid #38bdf8;
+
+    /* Cienie i Efekty Głębi */
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.6);
+    --shadow-card-hover: 0 15px 35px rgba(56, 189, 248, 0.15);
+    --shadow-hero: 0 20px 40px rgba(0, 0, 0, 0.9);
+    --shadow-pin: drop-shadow(0 0 18px rgba(56, 189, 248, 0.6));
 }
 
 html {
@@ -52,10 +83,10 @@ a:focus-visible, button:focus-visible {
     justify-content: space-between;
     align-items: center;
     padding: 0.75rem 1rem;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: var(--header-bg);
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid var(--border-medium);
 }
 
 .logotype {
@@ -88,8 +119,8 @@ a:focus-visible, button:focus-visible {
 }
 
 .nav-contact-btn {
-    background-color: var(--text-light);
-    color: #000000 !important;
+    background-color: var(--btn-bg);
+    color: var(--btn-text) !important;
     padding: 0.4rem 0.8rem;
     border-radius: 6px;
     transition: background-color 0.2s ease, opacity 0.2s ease;
@@ -147,12 +178,12 @@ a:focus-visible, button:focus-visible {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem 1.25rem;
-    background: rgba(18, 18, 18, 0.75);
+    background: var(--bg-glass);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--border-strong);
+    box-shadow: var(--shadow-hero);
 }
 
 .company-name {
@@ -162,14 +193,14 @@ a:focus-visible, button:focus-visible {
     text-transform: uppercase;
     letter-spacing: 2px;
     line-height: 1.1;
-    color: #ffffff;
+    color: var(--text-light);
 }
 
 .hero-subtitle {
     font-size: 1.15rem;
     font-weight: 800;
     margin-bottom: 1.25rem;
-    color: #e2e8f0;
+    color: var(--text-heading-alt);
     text-transform: uppercase;
     letter-spacing: 1.5px;
 }
@@ -183,8 +214,8 @@ a:focus-visible, button:focus-visible {
 
 .cta-btn {
     display: inline-block;
-    background-color: var(--text-light);
-    color: #000000;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
     padding: 0.875rem 2rem;
     text-decoration: none;
     font-weight: 700;
@@ -213,14 +244,14 @@ a:focus-visible, button:focus-visible {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--scroll-indicator-bg);
     backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--border-strong);
     transition: background 0.2s ease;
 }
 
 .scroll-indicator:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--scroll-indicator-hover);
 }
 
 .scroll-indicator svg {
@@ -251,7 +282,7 @@ a:focus-visible, button:focus-visible {
     align-items: center;
     position: relative;
     box-sizing: border-box;
-    background-color: #000000;
+    background-color: var(--bg-dark);
 }
 
 .section-title {
@@ -273,8 +304,8 @@ a:focus-visible, button:focus-visible {
 }
 
 .service-card {
-    background: rgba(20, 20, 20, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: var(--bg-card);
+    border: 1px solid var(--border-medium);
     border-radius: 16px;
     padding: 1.75rem;
     backdrop-filter: blur(12px);
@@ -282,14 +313,14 @@ a:focus-visible, button:focus-visible {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-card);
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.05);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .card-header {
@@ -303,7 +334,7 @@ a:focus-visible, button:focus-visible {
     width: 40px;
     height: 40px;
     min-width: 40px;
-    stroke: #ffffff;
+    stroke: var(--text-light);
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -327,9 +358,9 @@ a:focus-visible, button:focus-visible {
 .location-section {
     width: 100vw;
     padding: 5rem 1.25rem;
-    background-color: #050505;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--bg-dark-alt);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -356,8 +387,8 @@ a:focus-visible, button:focus-visible {
 .location-icon {
     width: 80px;
     height: 80px;
-    fill: #ffffff;
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+    fill: var(--text-light);
+    filter: var(--shadow-pin);
     animation: floatPin 3s ease-in-out infinite;
 }
 
@@ -388,7 +419,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .location-description strong {
-    color: #ffffff;
+    color: var(--text-light);
 }
 
 .location-cities {
@@ -400,8 +431,8 @@ a:focus-visible, button:focus-visible {
 }
 
 .city-tag {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--tag-bg);
+    border: 1px solid var(--border-strong);
     color: var(--text-light);
     padding: 0.4rem 0.9rem;
     border-radius: 20px;
@@ -412,35 +443,14 @@ a:focus-visible, button:focus-visible {
 }
 
 .city-tag:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: #ffffff;
-}
-
-/* Responsywność dla urządzeń mobilnych i desktopów */
-@media (min-width: 1024px) {
-    .location-section {
-        padding: 6rem 3rem;
-    }
-    .location-icon {
-        width: 100px;
-        height: 100px;
-    }
-    .location-title {
-        font-size: 2.25rem;
-    }
-    .location-description {
-        font-size: 1.15rem;
-    }
-    .city-tag {
-        font-size: 0.95rem;
-        padding: 0.5rem 1.1rem;
-    }
+    background: var(--tag-bg-hover);
+    border-color: var(--primary-color);
 }
 
 /* Footer */
 .site-footer {
-    background-color: #0a0a0a;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: var(--bg-footer);
+    border-top: 1px solid var(--border-medium);
     padding: 3rem 1.25rem 1.5rem;
     position: relative;
     z-index: 10;
@@ -453,7 +463,7 @@ a:focus-visible, button:focus-visible {
     grid-template-columns: 1fr;
     gap: 2rem;
     padding-bottom: 2.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .footer-logo {
@@ -499,7 +509,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .footer-link:hover {
-    color: #ffffff;
+    color: var(--text-light);
 }
 
 .footer-bottom {
@@ -574,6 +584,23 @@ a:focus-visible, button:focus-visible {
     }
     .service-description {
         font-size: 1.05rem;
+    }
+    .location-section {
+        padding: 6rem 3rem;
+    }
+    .location-icon {
+        width: 100px;
+        height: 100px;
+    }
+    .location-title {
+        font-size: 2.25rem;
+    }
+    .location-description {
+        font-size: 1.15rem;
+    }
+    .city-tag {
+        font-size: 0.95rem;
+        padding: 0.5rem 1.1rem;
     }
     .site-footer {
         padding: 4rem 3rem 2rem;
